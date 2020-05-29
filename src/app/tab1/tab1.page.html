@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Searchbar
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar color="light" debounce="600" placeholder="Enter a Business Name" [(ngModel)]="searchTerm" (ionChange)="getUsersSearch()" (ionClear)="userClear()"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let user of users" [routerLink]="'/tabs/tab2'" lines="true">
+      <ion-avatar slot="start">
+        <img src="../../assets/avatar.png"/>
+      </ion-avatar>
+      <ion-label>
+        <p class="item-text">{{user?.businessName}}</p>
+        <ion-text class="item-text4">{{user?.businessAddress}}</ion-text>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
