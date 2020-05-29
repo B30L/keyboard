@@ -11,7 +11,9 @@ export class Tab1Page {
 
   public searchTerm: string;
   public users: any;
-
+  public show: boolean = false;
+  public address: string;
+  public business: string;
   constructor() {}
 
   getUsersSearch() {
@@ -34,7 +36,16 @@ export class Tab1Page {
     }, 800);
   }
 
+  setUser(type){
+    this.show = true;
+    this.business = type.businessName;
+    this.address = type.businessAddress;
+    this.users = [];
+  }
+
   userClear(){
+    this.show = false;
+    this.users = [];
     this.searchTerm = '';
   }
 
